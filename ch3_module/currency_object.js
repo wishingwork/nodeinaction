@@ -2,7 +2,7 @@ var Currency = function(canadianDollar) {
 	this.canadianDollar = canadianDollar;
 }
 
-Currency.prototype.roundTwoDecimals(amount) {
+Currency.prototype.roundTwoDecimals = function (amount) {
 	return Math.round(amount * 100) / 100;
 }
 

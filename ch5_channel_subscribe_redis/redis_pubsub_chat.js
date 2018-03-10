@@ -13,20 +13,23 @@ var server = net.createServer(function (socket) {
 	var publisher;
 
 	// socket.on('connect', function() {
+		// create subscribe client for every user
 		subscriber = redis.createClient();
 		subscriber.subscribe('main_chat_room');
-
+		// whenever a message is received in server, the server display the message to every user
 		subscriber.on('message', function(channel, message) {
 			socket.write('Channel ' + channel + ': ' + message);
 		});
+		// create publish client for every user
+			publisher = redis.createClient();
+		// });
 
-		publisher = redis.createClient();
-	// });
+		// when public message is created by server, display it
+		socket.on('data', function(data) {
+			publisher.publish('main_chat_room', data);
+		});
 
-	socket.on('data', function(data) {
-		publisher.publish('main_chat_room', data);
-	});
-
+	// If user is disconnected, end the publish and subscribe
 	socket.on('end', function() {
 		subscriber.unsubscribe('main_chat_room');
 		subscriber.end();
