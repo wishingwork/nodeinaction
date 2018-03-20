@@ -1,0 +1,15 @@
+{
+  "name": "shoutbox",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "bcrypt": "0.7.3",
+    "bcryptjs": "^2.0.2",
+    "ejs": "*",
+    "express": "3.x",
+    "redis": "0.7.2"
+  }
+}
