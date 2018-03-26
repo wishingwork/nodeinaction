@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title><%= title %></title>
-	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 </head>
 <body>
 	<% include menu %>
@@ -10,7 +10,7 @@
 	<p>Fill in the form below to sign up!</p>
 
 	<% include messages %>
-	<formm action="/register" method="post">
+	<form action="/register" method="post">
 		<p>
 			<input type="text" name="user[name]" placeholder="Username" />
 		</p>

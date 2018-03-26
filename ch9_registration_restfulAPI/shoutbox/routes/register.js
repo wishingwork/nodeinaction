@@ -1,6 +1,8 @@
+var User = require('../lib/user');
+
 exports.form = function (req, res) {
 	res.render('register', { title: 'Register'});
-}
+};
 
 exports.submit = function (req, res, next) {
 	var data = req.body.user;
@@ -19,7 +21,7 @@ exports.submit = function (req, res, next) {
 				if (err) return next(err);
 				req.session.uid = user.id;
 				res.redirect('/');
-			})
+			});
 		}
-	})
-}
+	});
+};

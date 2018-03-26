@@ -9,7 +9,7 @@ res.message = function (msg, type) {
 };
 
 res.error = function (msg) {
-	return this.message(msg, 'error');
+	return this.message(msg, 'error');				// Overrite default error messages
 }
 
 module.exports = function (req, res, next) {
